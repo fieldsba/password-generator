@@ -4,7 +4,7 @@
   let passwordLength = window.prompt("Please enter the desired number of characters for the password. \n\nNote: Passwords" +
   " fewer than 8 characters or greater than 128 characters cannot be generated.");
 
-do {
+do {      // Validates input for password length
     if (passwordLength < 8 || passwordLength > 128)
     {
       passwordLength = parseInt(passwordLength);
@@ -52,28 +52,23 @@ if (includeSpecialChars)
   possibleChars = specialChars.concat(possibleChars);
 }
 
-console.log(possibleChars);    //if validationTally = 0, the user did not select any characters to add to the password and is invalid input
-
-if (validationTally == 0)
+if (validationTally == 0)     //if validationTally = 0, the user did not select any characters to add to the password and is invalid input
 {
   window.alert("You did not select any characters for your password. \n\nRefresh the page and try again.");
 }
 
 writePassword();
 
-
+// Generates a password based on the user's input
 function generatePassword() {
     var passwordChars = "";
     for (i = 1; i <= passwordLength; i++)
     {
       var rand = Math.floor((Math.random() * (possibleChars.length - 1)));
-      console.log(possibleChars[rand]);
       passwordChars += possibleChars[rand];
     }
-    console.log(passwordChars);
     return passwordChars;
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
