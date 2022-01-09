@@ -1,13 +1,19 @@
 
 // Assignment code here
 
-let passwordLength = window.prompt("Please enter the desired number of characters for the password. \n\nNote: Passwords" +
+  let passwordLength = window.prompt("Please enter the desired number of characters for the password. \n\nNote: Passwords" +
   " fewer than 8 characters or greater than 128 characters cannot be generated.");
 
-  if (passwordLength < 8 || passwordLength > 128)
-  {
-    window.alert("You did not select a number between 8 and 128. \n\nRefresh the page and try again.");
-  }
+do {
+    if (passwordLength < 8 || passwordLength > 128)
+    {
+      passwordLength = parseInt(passwordLength);
+      window.alert("You did not select a number between 8 and 128. \n\nTry again.");
+      passwordLength = window.prompt("Please enter the desired number of characters for the password. \n\nNote: Passwords" +
+          " fewer than 8 characters or greater than 128 characters cannot be generated.");
+    }
+
+} while (passwordLength < 8 || passwordLength > 128);
 
   let includeLowercase = window.confirm("Include lowercase characters?");
   let includeUppercase = window.confirm("Include uppercase characters?");
@@ -53,6 +59,22 @@ if (validationTally == 0)
   window.alert("You did not select any characters for your password. \n\nRefresh the page and try again.");
 }
 
+writePassword();
+
+
+function generatePassword() {
+    var passwordChars = "";
+    for (i = 1; i <= passwordLength; i++)
+    {
+      var rand = Math.floor((Math.random() * (possibleChars.length - 1)));
+      console.log(possibleChars[rand]);
+      passwordChars += possibleChars[rand];
+    }
+    console.log(passwordChars);
+    return passwordChars;
+}
+
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -67,3 +89,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
