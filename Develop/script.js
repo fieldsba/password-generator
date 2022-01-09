@@ -4,6 +4,11 @@
 let passwordLength = window.prompt("Please enter the desired number of characters for the password. \n\nNote: Passwords" +
   " fewer than 8 characters or greater than 128 characters cannot be generated.");
 
+  if (passwordLength < 8 || passwordLength > 128)
+  {
+    window.alert("You did not select a number between 8 and 128. \n\nRefresh the page and try again.");
+  }
+
   let includeLowercase = window.confirm("Include lowercase characters?");
   let includeUppercase = window.confirm("Include uppercase characters?");
   let includeNumeric = window.confirm("Include numeric characters?");
@@ -45,7 +50,7 @@ console.log(possibleChars);    //if validationTally = 0, the user did not select
 
 if (validationTally == 0)
 {
-  window.alert("You have not selected any characters for your password. \n\nRefresh the page and try again.");
+  window.alert("You did not select any characters for your password. \n\nRefresh the page and try again.");
 }
 
 // Get references to the #generate element
