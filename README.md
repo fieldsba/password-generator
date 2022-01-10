@@ -5,7 +5,7 @@ Password Generator
 Generates a random, customizable string of characters to be used as a strong password.
 
 # Screenshot
-![Website screenshot](/password-gen-screencap.jpg "Screenshot of live application")
+![Website screenshot](password-gen-screencap.jpg "Screenshot of live application")
 
 # Link to live site
 https://fieldsba.github.io/password-generator/
